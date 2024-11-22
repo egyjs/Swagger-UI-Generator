@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - master  # Adjust the branch name as necessary
+      - master  # Replace with your target branch
 
 jobs:
   # Build job
@@ -16,7 +16,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20' # Specify your Node.js version
+          node-version: '16' # Specify your Node.js version
 
       - name: Install dependencies
         run: npm install
@@ -33,17 +33,14 @@ jobs:
   # Deploy job
   deploy:
     needs: build
+    runs-on: ubuntu-latest
     permissions:
       pages: write
       id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
       - name: Download build artifacts
         uses: actions/download-artifact@v3
         with:
@@ -52,3 +49,5 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          folder: ./build-artifacts # Folder containing your build files
