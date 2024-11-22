@@ -3,20 +3,19 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - master  # Replace with your target branch
+      - master
 
 jobs:
-  # Build job
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v3
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16' # Replace with your desired Node.js version
+          node-version: '16'  # Adjust Node.js version as needed
 
       - name: Install dependencies
         run: npm install
@@ -27,9 +26,8 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: ./dist # Replace with your build output directory
+          path: ./dist  # Replace with your build directory
 
-  # Deploy job
   deploy:
     needs: build
     runs-on: ubuntu-latest
@@ -42,5 +40,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        with:
-          artifact_name: github-pages
