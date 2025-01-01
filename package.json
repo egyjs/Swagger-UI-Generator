@@ -9,14 +9,22 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@esbuild-plugins/node-globals-polyfill": "^0.2.3",
+    "@esbuild-plugins/node-modules-polyfill": "^0.2.2",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.49",
+    "rollup-plugin-polyfill-node": "^0.13.0",
     "tailwindcss": "^3.4.15",
-    "vite": "^5.4.10"
+    "vite": "^5.4.10",
+    "vite-plugin-node-polyfills": "^0.22.0"
   },
   "dependencies": {
     "@alpinejs/persist": "^3.14.3",
+    "@apidevtools/json-schema-ref-parser": "^11.7.3",
+    "@apidevtools/swagger-parser": "^10.1.0",
+    "@readme/openapi-parser": "^2.6.0",
     "alpinejs": "^3.14.3",
-    "flowbite": "^2.5.2"
+    "flowbite": "^2.5.2",
+    "monaco-alpinejs": "file:../monacoAlpinejsPlugin"
   }
 }

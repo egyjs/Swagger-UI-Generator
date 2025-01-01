@@ -118,7 +118,8 @@ function convert(inJSON) {
   try {
     parsedJSON = JSON.parse(inJSON);
   } catch (e) {
-    throw new Error("Your JSON is invalid!\n(" + e + ")");
+    // throw new Error("Your JSON is invalid!\n(" + e + ")");
+    return {};
   }
 
   let tabCount = 0;
