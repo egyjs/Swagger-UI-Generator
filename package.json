@@ -24,6 +24,6 @@
     "@readme/openapi-parser": "^2.6.0",
     "alpinejs": "^3.14.8",
     "flowbite": "^2.5.2",
-    "monaco-alpinejs": "^1.0.1"
+    "monaco-alpinejs": "^1.0.2"
   }
 }
